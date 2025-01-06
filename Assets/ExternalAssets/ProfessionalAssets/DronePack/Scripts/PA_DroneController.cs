@@ -8,13 +8,13 @@ namespace PA_DronePack
     {
         #region Movement Values
         [Tooltip("sets the drone's max forward speed")]
-        public float forwardSpeed = 7f;
+        public float forwardSpeed = 12f;
         [Tooltip("sets the drone's max backward speed")]
         public float backwardSpeed = 5f;
         [Tooltip("sets the drone's max left strafe speed")]
         public float rightSpeed = 5f;
         [Tooltip("sets the drone's max right strafe speed")]
-        public float leftSpeed = 5f;
+        public float leftSpeed = 5f; 
         [Tooltip("sets the drone's max rise speed")]
         public float riseSpeed = 5f;
         [Tooltip("sets the drone's max lower speed")]
@@ -180,10 +180,16 @@ namespace PA_DronePack
                 {                                                                                                                         //
                     if (groundDistance > 0.2f)                                                                                            // if we're NOT too close to the ground...
                     {                                                                                                                     //
-                        if (driveInput > 0) { rigidBody.AddForceAtPosition(Vector3.down * (Mathf.Abs(driveInput) * 0.3f), frontTilt.position, ForceMode.Acceleration); }   // add downward/tilt force onto specified 'tilt points'
-                        if (driveInput < 0) { rigidBody.AddForceAtPosition(Vector3.down * (Mathf.Abs(driveInput) * 0.3f), backTilt.position, ForceMode.Acceleration); }    // ...
-                        if (strafeInput > 0) { rigidBody.AddForceAtPosition(Vector3.down * (Mathf.Abs(strafeInput) * 0.3f), rightTilt.position, ForceMode.Acceleration); }  // ...
-                        if (strafeInput < 0) { rigidBody.AddForceAtPosition(Vector3.down * (Mathf.Abs(strafeInput) * 0.3f), leftTilt.position, ForceMode.Acceleration); }   // ...
+                                                                                                                                          //if (driveInput > 0) { rigidBody.AddForceAtPosition(Vector3.down * (Mathf.Abs(driveInput) * 0.3f), frontTilt.position, ForceMode.Acceleration); }   // add downward/tilt force onto specified 'tilt points'
+                                                                                                                                          //if (driveInput < 0) { rigidBody.AddForceAtPosition(Vector3.down * (Mathf.Abs(driveInput) * 0.3f), backTilt.position, ForceMode.Acceleration); }    // ...
+                                                                                                                                          //if (strafeInput > 0) { rigidBody.AddForceAtPosition(Vector3.down * (Mathf.Abs(strafeInput) * 0.3f), rightTilt.position, ForceMode.Acceleration); }  // ...
+                                                                                                                                          //if (strafeInput < 0) { rigidBody.AddForceAtPosition(Vector3.down * (Mathf.Abs(strafeInput) * 0.3f), leftTilt.position, ForceMode.Acceleration); }   // ...
+
+                        //*change* - trying to modify to get rid of tilts
+
+                        Vector3 movementForce = new Vector3(strafeInput, 0, driveInput); // Combine strafe and drive inputs into a single vector
+                        rigidBody.AddForce(transform.TransformDirection(movementForce), ForceMode.Acceleration);
+
                     }
 
                     Vector3 localVelocity = transform.InverseTransformDirection(rigidBody.velocity);                                                                                       // convert drone's world velocity into local velocity and store it 
@@ -199,9 +205,20 @@ namespace PA_DronePack
                 rigidBody.velocity = new Vector3(rigidBody.velocity.x, liftForce, rigidBody.velocity.z);                                                      // apply global velocity's Y axis to global velocity
 
                 rigidBody.angularVelocity *= 1f - Mathf.Clamp(InputMagnitude(), 0.2f, 1.0f) * stability;                       // dampen the drone's angulary velocity based on movement inputs and the stability value
+                
                 Quaternion uprightRotation = Quaternion.FromToRotation(transform.up, Vector3.up);                              // generate a new rotation direction that faces upwards (global Y axis)
                 rigidBody.AddTorque(new Vector3(uprightRotation.x, 0, uprightRotation.z) * 100f, ForceMode.Acceleration);      // add tourqe (force) in that new rotation's direction to keep the drone upright
-                rigidBody.angularVelocity = new Vector3(rigidBody.angularVelocity.x, turnForce, rigidBody.angularVelocity.z);  // afterwards use the turninput to rotate the drone around it's Y axis
+                
+                //*change* adding 1 line which is:
+                                                                                                                               // Lock rotation to prevent roll and pitch drift
+                rigidBody.rotation = Quaternion.Euler(0, rigidBody.rotation.eulerAngles.y, 0);
+
+                //rigidBody.angularVelocity = new Vector3(rigidBody.angularVelocity.x, turnForce, rigidBody.angularVelocity.z);  // afterwards use the turninput to rotate the drone around it's Y axis
+                //*change* replaced above line with this:
+                // Allow rotation only around Y-axis (yaw) and clamp other angular velocities
+                rigidBody.angularVelocity = new Vector3(0, turnForce, 0);
+
+
             }
             else // if the drone's motor is off...
             {

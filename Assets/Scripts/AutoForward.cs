@@ -1,3 +1,4 @@
+using System.Diagnostics.Tracing;
 using PA_DronePack;
 using UnityEngine;
 
@@ -8,14 +9,18 @@ public class AutoForward : MonoBehaviour
     private PA_DroneController droneController;
 
     [Header("Strafe Settings")]
-    public float StrafeDuration = 5f; // Duration of strafe in seconds
-    public float StrafeSpeed = 1f; // Adjust this value to control strafe speed
+    public float StrafeDuration = 2f; // Duration of strafe in seconds
+    public float StrafeSpeed = 0.5f; // Adjust this value to control strafe speed
     private bool isStrafingLeft = false;
     private bool isStrafingRight = false;
     private float strafeTimeRemaining = 0f;
-
+    //fields to define auto strafe
+    private float[] strafeArr = new float[25] {-1, 1, -1, -1, 1, 1, -1, 1, 1, 1,-1, -1, -1, 1, -1, 1, -1, 1 , -1, 1, -1 , 1, -1, 1, -1};
+    private int counter = 0;
+    //built the enviornment that fit strafe duration = 2 and strafe speed = 0.5
     void Start()
     {
+
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player != null)
         {
@@ -94,5 +99,11 @@ public class AutoForward : MonoBehaviour
         strafeTimeRemaining = 0f;
         droneController.StrafeInput(0f); // Stop strafing
         Debug.Log("Strafing stopped.");
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        StartStrafing(strafeArr[counter]);
+        counter++;
     }
 }

@@ -7,17 +7,14 @@ public class TimeStampLogger : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
-            long unixTime = GetUnixTime();
-            string logMessage = $"[{unixTime}] {lineName} crossed by {other.name}\n";
+        long unixTime = GetUnixTime();
+        string logMessage = $"[{unixTime}] {lineName} crossed by {other.name}\n";
 
-            // Append the message to a file
-            File.AppendAllText("TimestampsLog.txt", logMessage);
+        // Append the message to a file
+        File.AppendAllText("TimestampsLog.txt", logMessage);
 
-            // Print a short message to the Unity Console
-            Debug.Log($"{lineName} crossed by {other.name} at {unixTime}");
-        }
+        // Print a short message to the Unity Console
+        Debug.Log($"{lineName} crossed by {other.name} at {unixTime}");
     }
 
     // Get the current Unix timestamp
