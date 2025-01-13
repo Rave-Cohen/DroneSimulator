@@ -15,6 +15,9 @@ public class ProtocolAndNotes : MonoBehaviour
      * NOW:
      * 
      * As of now - need to build main page to start the experiment with
+     * Can also design it as simulator with exe as desktop game for windows
+     * 
+     * build more enviornments
      * 
      * IN GENERAL:
      * Work on respwan the drone - theres some given feature in the scripts - check it and how can it be used
@@ -35,6 +38,8 @@ public class ProtocolAndNotes : MonoBehaviour
      * and a counter variable which grows with each turn taken
      * 
      * organize triggers before every boulder - 5 sec before the need to turn
+     * 
+     * made flickering lights - red: strafe left - imagine moving ur left arm, right: strafe right - imagine moving ur right arm
      * 
      * 
      *
