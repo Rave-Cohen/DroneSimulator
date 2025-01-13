@@ -98,7 +98,7 @@ public class AutoForward : MonoBehaviour
         isStrafingRight = false;
         strafeTimeRemaining = 0f;
         droneController.StrafeInput(0f); // Stop strafing
-        Debug.Log("Strafing stopped.");
+        //Debug.Log("Strafing stopped.");
     }
 
     void OnTriggerEnter(Collider other)

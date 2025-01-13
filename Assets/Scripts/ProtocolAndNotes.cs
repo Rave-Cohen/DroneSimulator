@@ -13,7 +13,7 @@ public class ProtocolAndNotes : MonoBehaviour
      * 
      * 
      * NOW:
-     * organize triggers before every boulder - 5 sec before the need to turn
+     * 
      * As of now - need to build main page to start the experiment with
      * 
      * IN GENERAL:
@@ -22,16 +22,22 @@ public class ProtocolAndNotes : MonoBehaviour
      * MAYBE - try to fix better strafe graphics
      * 
      * LATER:
-     * we can implement the control needed to pass boulders with stack contains right \ left command
+     * randomness - we can implement the control needed to pass boulders with stack contains right \ left command
      * we can later use this stack to find the ErrP
      * 
      * 
      * 
      * 
      * DONE:
-     * check that triggers are trully sent - need new computer porbably
+     * check that triggers are trully sent - need new computer porbably -  implemented socket and triggers are sent to unicorn data
+     * 
      * Set the experiment enviornment 20 turns - make an array of -1 for left and 1 for right match the turn needed and with every trigger
      * and a counter variable which grows with each turn taken
+     * 
+     * organize triggers before every boulder - 5 sec before the need to turn
+     * 
+     * 
+     *
      * 
      * How to run LSL data stream:
      * Connect and activate the unicorn kit and BT
@@ -46,13 +52,13 @@ public class ProtocolAndNotes : MonoBehaviour
      * 
      * While its running on python - we run the unity simulator
      * 
-     * We need to implement socket(!) for the unicorn device in the unity - implemented check if it works
      * 
      * 
      * 
      * 
-     * List of movement: 
-     * Left - V , Right - B, Left - V, Left - V, Right - B, 
+     * MainScene - List of movement: 
+     * private float[] strafeArr = new float[25] {-1, 1, -1, -1, 1, 1, -1, 1, 1, 1,-1, -1, -1, 1, -1, 1, -1, 1 , -1, 1, -1 , 1, -1, 1, -1};
+     * total 13 left and 12 right
      */
 
 
