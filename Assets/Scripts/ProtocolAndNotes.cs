@@ -13,7 +13,7 @@ public class ProtocolAndNotes : MonoBehaviour
      * 
      * 
      * NOW:
-     * 
+     * design arrows of direction instead of flicker lights
      * As of now - need to build main page to start the experiment with
      * Can also design it as simulator with exe as desktop game for windows
      * 
@@ -62,7 +62,7 @@ public class ProtocolAndNotes : MonoBehaviour
      * 
      * 
      * MainScene - List of movement: 
-     * private float[] strafeArr = new float[25] {-1, 1, -1, -1, 1, 1, -1, 1, 1, 1,-1, -1, -1, 1, -1, 1, -1, 1 , -1, 1, -1 , 1, -1, 1, -1};
+     * private float[] strafeArr = new float[24] {-1, 1, -1, -1, 1, 1, -1, 1, 1, 1,-1, -1, -1, 1, -1, 1, -1, 1 , -1, 1, -1 , 1, -1, 1};
      * total 13 left and 12 right
      */
 

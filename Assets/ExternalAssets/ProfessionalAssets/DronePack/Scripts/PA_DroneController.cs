@@ -161,9 +161,20 @@ namespace PA_DronePack
                 {                                                                                                                                                                                      //
                     if (!compass)                                                                                                                                                                      // check if compass has NOT been assigned
                     {                                                                                                                                                                                  //
-                        Debug.LogError("no headless compassed assinged! please asign a compass in order to use headless mode!");                                                                       // send an error msg
+                        Debug.LogError("no headless compassed assinged! please asign a compass in order to use headless mode!");
+
+                        // send an error msg
+
+                        //// Create a virtual compass that always points in the +Z direction
+                        //Transform virtualCompass = new GameObject("VirtualCompass").transform;
+                        //virtualCompass.position = Vector3.zero;  // Keep it at the world origin
+                        //virtualCompass.rotation = Quaternion.identity;  // Align to the world axis (default +Z forward)
+                        //compass = virtualCompass;  // Assign it to the compass variable
+
+
                         headless = false;                                                                                                                                                              // turn headless mode off
-                    }                                                                                                                                                                                  //
+                    }
+                    //
                     if (groundDistance > 0.2f)                                                                                                                                                         // if we're NOT too close to the ground...
                     {                                                                                                                                                                                  //
                         if (driveInput != 0 || strafeInput != 0) { rigidBody.AddForceAtPosition(Vector3.down, (rigidBody.position + rigidBody.velocity.normalized * 0.5f), ForceMode.Acceleration); }  // add downward/tilt force in the direction we're moving (tilt points ignored)
@@ -180,10 +191,10 @@ namespace PA_DronePack
                 {                                                                                                                         //
                     if (groundDistance > 0.2f)                                                                                            // if we're NOT too close to the ground...
                     {                                                                                                                     //
-                                                                                                                                          //if (driveInput > 0) { rigidBody.AddForceAtPosition(Vector3.down * (Mathf.Abs(driveInput) * 0.3f), frontTilt.position, ForceMode.Acceleration); }   // add downward/tilt force onto specified 'tilt points'
-                                                                                                                                          //if (driveInput < 0) { rigidBody.AddForceAtPosition(Vector3.down * (Mathf.Abs(driveInput) * 0.3f), backTilt.position, ForceMode.Acceleration); }    // ...
-                                                                                                                                          //if (strafeInput > 0) { rigidBody.AddForceAtPosition(Vector3.down * (Mathf.Abs(strafeInput) * 0.3f), rightTilt.position, ForceMode.Acceleration); }  // ...
-                                                                                                                                          //if (strafeInput < 0) { rigidBody.AddForceAtPosition(Vector3.down * (Mathf.Abs(strafeInput) * 0.3f), leftTilt.position, ForceMode.Acceleration); }   // ...
+                        //                                                                                                                  if (driveInput > 0) { rigidBody.AddForceAtPosition(Vector3.down * (Mathf.Abs(driveInput) * 0.3f), frontTilt.position, ForceMode.Acceleration); }   // add downward/tilt force onto specified 'tilt points'
+                        //if (driveInput < 0) { rigidBody.AddForceAtPosition(Vector3.down * (Mathf.Abs(driveInput) * 0.3f), backTilt.position, ForceMode.Acceleration); }    // ...
+                        //                                                                                                                  if (strafeInput > 0) { rigidBody.AddForceAtPosition(Vector3.down * (Mathf.Abs(strafeInput) * 0.3f), rightTilt.position, ForceMode.Acceleration); }  // ...
+                        //if (strafeInput < 0) { rigidBody.AddForceAtPosition(Vector3.down * (Mathf.Abs(strafeInput) * 0.3f), leftTilt.position, ForceMode.Acceleration); }   // ...
 
                         //*change* - trying to modify to get rid of tilts
 
@@ -242,6 +253,8 @@ namespace PA_DronePack
                     sparkSound.PlayOneShot(sparkSound.clip, collisionMagnitude * 0.05f);  // play the spark sound and alter it's volume by a fraction of the collison force
                 }
             }
+            //change - try to get out physical effects on drone
+
             if (collisionMagnitude > fallMinimumForce && fallAfterCollision)  // if the collision force is greater force than the fall threshold...
             {                                                                 //
                 motorOn = false;                                              // shut off motor
