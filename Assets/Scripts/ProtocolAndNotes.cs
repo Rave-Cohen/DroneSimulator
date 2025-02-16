@@ -13,15 +13,15 @@ public class ProtocolAndNotes : MonoBehaviour
      * 
      * 
      * NOW:
-     * design arrows of direction instead of flicker lights
-     * As of now - need to build main page to start the experiment with
-     * Can also design it as simulator with exe as desktop game for windows
+     * 
+     * build and run as exe file - need to debug resizing UI objects and anchor them. also need to check if compiling fails and prevent building.
+     * 
+     * need to add arrows images on instructions
      * 
      * build more enviornments
      * 
      * IN GENERAL:
      * Work on respwan the drone - theres some given feature in the scripts - check it and how can it be used
-     * Need to split rock collissions and time stamp collisions - no need now
      * MAYBE - try to fix better strafe graphics
      * 
      * LATER:
@@ -41,6 +41,9 @@ public class ProtocolAndNotes : MonoBehaviour
      * 
      * made flickering lights - red: strafe left - imagine moving ur left arm, right: strafe right - imagine moving ur right arm
      * 
+     * design arrows of direction instead of flicker lights
+     * 
+     * As of now - need to build main page to start the experiment with
      * 
      *
      * 
@@ -63,7 +66,7 @@ public class ProtocolAndNotes : MonoBehaviour
      * 
      * MainScene - List of movement: 
      * private float[] strafeArr = new float[24] {-1, 1, -1, -1, 1, 1, -1, 1, 1, 1,-1, -1, -1, 1, -1, 1, -1, 1 , -1, 1, -1 , 1, -1, 1};
-     * total 13 left and 12 right
+     * total 12 left and 12 right
      */
 
 

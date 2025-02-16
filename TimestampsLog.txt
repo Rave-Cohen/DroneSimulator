@@ -443,3 +443,8 @@
 [1739447583] Line5 crossed by Drone
 [1739447594] Line6 crossed by Drone
 [1739447605] Line7 crossed by Drone
+[1739716741] Line1 crossed by Drone
+[1739727961] Line1 crossed by Drone
+[1739727970] Line2 crossed by Drone
+[1739730082] Line1 crossed by Drone
+[1739730091] Line2 crossed by Drone
