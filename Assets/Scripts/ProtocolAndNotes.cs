@@ -14,15 +14,12 @@ public class ProtocolAndNotes : MonoBehaviour
      * 
      * NOW:
      * 
-     * build and run as exe file - need to debug resizing UI objects and anchor them. also need to check if compiling fails and prevent building.
-     * 
-     * need to add arrows images on instructions
-     * 
      * build more enviornments
+     * 
+     * try to fix better strafe graphics
      * 
      * IN GENERAL:
      * Work on respwan the drone - theres some given feature in the scripts - check it and how can it be used
-     * MAYBE - try to fix better strafe graphics
      * 
      * LATER:
      * randomness - we can implement the control needed to pass boulders with stack contains right \ left command
@@ -45,6 +42,9 @@ public class ProtocolAndNotes : MonoBehaviour
      * 
      * As of now - need to build main page to start the experiment with
      * 
+     * build and run as exe file - need to debug resizing UI objects and anchor them. also need to check if compiling fails and prevent building.
+     * 
+     * need to add arrows images on instructions
      *
      * 
      * How to run LSL data stream:
