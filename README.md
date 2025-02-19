@@ -6,7 +6,7 @@ Our goal is to collect EEG data when an individual thinks about moving their lef
 
 The system consists of:  
 - A **Drone Simulator** developed in Unity  
-- A **Unicorn Black Suite BCI**  - https://www.gtec.at/product/unicorn-hybrid-black/?srsltid=AfmBOopszlZHrlDeKNcj01YF5Bgfuk_F8UhkEYQ_KhfeXSD-79rVRNXM
+- A [**Unicorn Black Suite BCI**](https://www.gtec.at/product/unicorn-hybrid-black/?srsltid=AfmBOopszlZHrlDeKNcj01YF5Bgfuk_F8UhkEYQ_KhfeXSD-79rVRNXM)
 
 Network Details: Uses a socket connection with the BCI, handled by the script **UdpConnection**.  
 
