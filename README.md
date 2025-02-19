@@ -8,10 +8,10 @@ The system consists of:
 - A **Drone Simulator** developed in Unity  
 - A [**Unicorn Black Suite BCI**](https://www.gtec.at/product/unicorn-hybrid-black/?srsltid=AfmBOopszlZHrlDeKNcj01YF5Bgfuk_F8UhkEYQ_KhfeXSD-79rVRNXM)
 
-Network Details: Uses a socket connection with the BCI, handled by the script **UdpConnection**.  
+Network Details: Uses a socket connection with the BCI, handled by the script UdpConnection.  
 
 ### Simple Explanation:
-We want to capture brain activity at the **initiation of motor intention**.  
+We want to capture brain activity at the beginning of motor intention.  
 
 1. The drone moves autonomously.  
 2. Before reaching an obstacle, an arrow appears to trigger the thought process.  
