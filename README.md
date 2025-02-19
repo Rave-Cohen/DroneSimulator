@@ -1,15 +1,30 @@
 # Drone Simulator & BCI Project
 
-**Project Purpose:**  
-This project aims to assist and figure about how to overcome the brain's non-stationary dynamics in some matter.
-Our model purpose is to gain EEG data about when individual is thinking of moving his own left \ right arm.
-It consists of a drone simulator developed with Unity that communicates through a socket connection with a Unicorn Black Suite BCI.
-Network: socket with BCI, script named UdpConnection.
+### Project Purpose:
+This project aims to explore ways to overcome the brain's non-stationary dynamics.  
+Our goal is to collect EEG data when an individual thinks about moving their left or right arm.  
 
-Data acquisition: we use python, https://github.com/bci4cpl/MI-Data.git .
+The system consists of:  
+- A **Drone Simulator** developed in Unity  
+- A **Unicorn Black Suite BCI**  
 
-**Current Prototype (Feb 17th):**  
-We now hold a prototype version to begin data acquisition. 
-This data will be used to train our Python models.
+Network Details: Uses a socket connection with the BCI, handled by the script **UdpConnection**.  
 
-For more details, please refer to the "ProtocolAndNotes" script.
+### Simple Explanation:
+We want to capture brain activity at the **initiation of motor intention**.  
+
+1. The drone moves autonomously.  
+2. Before reaching an obstacle, an arrow appears to trigger the thought process.  
+3. Shortly after, the drone automatically strafes in the required direction.  
+4. We analyze the relationship between brain activity and the computer's response.  
+5. Our end goal is to train models to detect movement intention and control the drone using imagination alone (using EEG).  
+
+### Data Acquisition:
+We use Python for data processing.  
+[MI-Data GitHub Repo](https://github.com/bci4cpl/MI-Data.git)  
+
+
+### Current Prototype (Feb 17th):
+This dataset will be used to train our machine learning models.  
+
+*For more details: Refer to the "ProtocolAndNotes" script.  
