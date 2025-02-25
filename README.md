@@ -25,6 +25,6 @@ We use Python for data processing.
 
 
 ### Current Prototype (Feb 17th):
-This dataset will be used to train our machine learning models.  
+This simulator will be used to train our machine learning models.  
 
 *For more details: Refer to the "ProtocolAndNotes" script.  
