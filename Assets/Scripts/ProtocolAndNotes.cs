@@ -14,12 +14,20 @@ public class ProtocolAndNotes : MonoBehaviour
      * 
      * NOW:
      * 
-     * build more enviornments
+     * right now 0.3 chance that the drone goes through a rock (cancelled all rocks colliders)
+     * according to the above need to think of a way to fix the route - maybe add auto strafe afterwards
+     * maybe respwan in newplace check method : ResetDronePosition() in PA_DroneController
+     * 
+     * build more enviornments - sent mails to procedural worlds GAIA enviornments
      * 
      * try to fix better strafe graphics
      * 
+     * 
+     * 
      * IN GENERAL:
      * Work on respwan the drone - theres some given feature in the scripts - check it and how can it be used
+     * 
+     * optinal - build map compass that orienting drone if changes were made
      * 
      * LATER:
      * randomness - we can implement the control needed to pass boulders with stack contains right \ left command
